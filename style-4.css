@@ -1,0 +1,98 @@
+                #lnPathophysiology.page { overflow: hidden; scroll-behavior: smooth; }
+                #lnPathophysiology .patho-hero { position: absolute; top: 0; left: 0; right: 0; height: 230px; background: linear-gradient(160deg, #501e22 0%, #792c33 45%, #501e22 100%); padding: 2.6rem 1.25rem 3.6rem; overflow: hidden; color: #fff; z-index: 1; }
+                #lnPathophysiology .patho-hero-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+                #lnPathophysiology .patho-back { position: absolute; top: 1rem; left: 1rem; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); box-shadow: 0 2px 10px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.28); z-index: 999; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, backdrop-filter 0.25s ease; }
+                #lnPathophysiology.patho-stuck .patho-back { background: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.65); color: #501e22; backdrop-filter: blur(22px) saturate(180%); -webkit-backdrop-filter: blur(22px) saturate(180%); box-shadow: 0 6px 18px rgba(15,23,42,0.16), inset 0 1px 0 rgba(255,255,255,0.75); }
+                #lnPathophysiology .patho-scroll { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; z-index: 5; }
+                #lnPathophysiology .patho-hero-spacer { width: 100%; }
+                #lnPathophysiology .patho-tabbar { position: sticky; top: 16px; z-index: 20; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 0.35rem; margin: 0 1rem 0; padding: 0.32rem; background: rgba(255,255,255,0.16); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.22); transition: margin-left 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, backdrop-filter 0.25s ease; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+                @media (orientation: landscape) and (max-width: 1024px) and (min-width: 999999px) { /* disabled: tabbar now always stays in normal sticky flow, matching mobile-view behavior */
+                    /* Keep the hero exactly as-is in landscape (its height
+                       rules live elsewhere and aren't touched here). Only
+                       reposition the Overview/Chapters bar: instead of
+                       sitting in the scrollable content below the hero —
+                       where a tall landscape hero can push it off-screen,
+                       needing a scroll to reach — pin it near the hero's
+                       bottom edge so it's visible immediately. See pathoSyncTabbarPosition()
+                       for how its exact offset is computed from the hero's
+                       real rendered height. Being position:fixed also means
+                       it no longer reserves space in the normal page flow.
+                       Scoped to max-width:1024px (phones/tablets) to match
+                       the short vh-based hero used at that breakpoint — on
+                       wider desktop windows the hero grows much taller (see
+                       the 60vw hero-height rule), and pinning the bar to its
+                       bottom edge there would push it far down the screen,
+                       away from the Overview card and chapter list, instead
+                       of scrolling attached to them. */
+                    #lnPathophysiology .patho-tabbar { position: fixed !important; left: 1rem !important; right: 1rem !important; margin: 0 !important; z-index: 50 !important; }
+                    /* The "stuck" (scrolled-past) look shifts the bar
+                       sideways and recolors it for the normal in-flow
+                       sticky bar — not relevant to this fixed version. */
+                    #lnPathophysiology.patho-stuck .patho-tabbar { margin-left: 0 !important; }
+                }
+                #lnPathophysiology.patho-stuck .patho-tabbar { margin-left: 3.75rem; background: linear-gradient(160deg, rgba(80,30,34,1) 0%, rgba(121,44,51,1) 45%, rgba(80,30,34,1) 100%); border-color: rgba(255,255,255,0.2); box-shadow: 0 8px 26px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.12); }
+                #lnPathophysiology .patho-tab { flex: 1 1 auto; min-width: max-content; white-space: nowrap; border: none; background: transparent; cursor: pointer; padding: 0.55rem 0.5rem; border-radius: 12px; font-family: inherit; font-size: 0.74rem; font-weight: 700; color: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center; gap: 0.32rem; transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease; outline: none; -webkit-tap-highlight-color: transparent; }
+                #lnPathophysiology .patho-tab:focus, #lnPathophysiology .patho-tab:focus-visible { outline: none; }
+                #lnPathophysiology .patho-tab.active { background: #fff; color: #501e22; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+                #lnPathophysiology.patho-stuck .patho-tab.active { background: rgba(255,255,255,0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.6); }
+                #lnPathophysiology .patho-content { background: var(--background); border-radius: 20px 20px 0 0; margin-top: 16px; padding: 1rem 1rem 2rem; position: relative; z-index: 1; }
+                #lnPathophysiology .patho-card { background: var(--surface); border-radius: 16px; padding: 0.9rem; display: flex; gap: 0.7rem; align-items: flex-start; box-shadow: var(--shadow); margin-bottom: 1.4rem; }
+                #lnPathophysiology .patho-card-icon { width: 36px; height: 36px; border-radius: 10px; background: #FBE8EA; color: #C94A55; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+                #lnPathophysiology .patho-card-title { font-weight: 800; font-size: 0.85rem; color: var(--text-primary); }
+                #lnPathophysiology .patho-card-desc { font-size: 0.68rem; color: var(--text-secondary); margin-top: 0.3rem; line-height: 1.5; }
+                #lnPathophysiology .patho-card-arrow { color: var(--text-secondary); font-size: 1.1rem; margin-left: auto; align-self: center; }
+                #lnPathophysiology .patho-chapters-title { font-size: 0.95rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.55rem; scroll-margin-top: 84px; }
+                #lnPathophysiology .patho-chapter-row { display: flex; align-items: center; gap: 0.7rem; background: var(--surface); border-radius: 14px; padding: 0.65rem 0.75rem; margin-bottom: 0.45rem; cursor: pointer; box-shadow: var(--shadow); transition: var(--transition); }
+                #lnPathophysiology .patho-chapter-row:hover { box-shadow: 0 6px 18px rgba(201,74,85,0.18); }
+                #lnPathophysiology .patho-chapter-num { width: 32px; height: 32px; border-radius: 50%; background: #FBE8EA; color: #C94A55; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.7rem; flex-shrink: 0; }
+                #lnPathophysiology .patho-chapter-title { font-weight: 700; font-size: 0.74rem; color: var(--text-primary); line-height: 1.25; }
+                #lnPathophysiology .patho-chapter-sub { font-size: 0.58rem; color: var(--text-secondary); margin-top: 0.15rem; }
+                #lnPathophysiology .patho-chapter-arrow { margin-left: auto; color: var(--text-secondary); font-size: 1rem; }
+
+                /* Unit "Topics" list — same visual language as the
+                   Chapters list above (rounded row, circular numbered
+                   badge, subtle shadow, maroon accent) instead of the
+                   old thick blue-bordered cards. These rows live on
+                   their own page divs (id="lnPathophysiology-U1" etc.),
+                   not inside #lnPathophysiology, so the classes below
+                   are unscoped rather than reusing .patho-chapter-*. */
+                .patho-unit-topic-row { display: flex; align-items: center; gap: 0.85rem; background: var(--surface); border-radius: 14px; padding: 0.85rem 1rem; margin-bottom: 0.6rem; cursor: pointer; box-shadow: var(--shadow); transition: var(--transition); }
+                .patho-unit-topic-row:hover { box-shadow: 0 6px 18px rgba(201,74,85,0.18); }
+                .patho-unit-topic-num { width: 36px; height: 36px; border-radius: 50%; background: #FBE8EA; color: #C94A55; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.82rem; flex-shrink: 0; }
+                .patho-unit-topic-title { font-weight: 700; font-size: 0.88rem; color: var(--text-primary); line-height: 1.25; }
+                .patho-unit-topic-sub { font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.25rem; line-height: 1.45; }
+                .patho-unit-topic-arrow { margin-left: auto; color: var(--text-secondary); font-size: 1.1rem; flex-shrink: 0; }
+
+                /* Same Unit "Topics" row treatment for the other five
+                   subjects, each using its own theme accent/tint so it
+                   matches that subject's own Chapters list. */
+                .pmic-unit-topic-row, .pcog-unit-topic-row, .pharm1-unit-topic-row, .cp-unit-topic-row, .ptx-unit-topic-row {
+                    display: flex; align-items: center; gap: 0.85rem; background: var(--surface); border-radius: 14px;
+                    padding: 0.85rem 1rem; margin-bottom: 0.6rem; cursor: pointer; box-shadow: var(--shadow); transition: var(--transition);
+                }
+                .pmic-unit-topic-row:hover { box-shadow: 0 6px 18px rgba(21,158,173,0.18); }
+                .pcog-unit-topic-row:hover { box-shadow: 0 6px 18px rgba(21,128,61,0.18); }
+                .pharm1-unit-topic-row:hover { box-shadow: 0 6px 18px rgba(103,87,184,0.18); }
+                .cp-unit-topic-row:hover { box-shadow: 0 6px 18px rgba(57,127,184,0.18); }
+                .ptx-unit-topic-row:hover { box-shadow: 0 6px 18px rgba(197,138,43,0.18); }
+
+                .pmic-unit-topic-num, .pcog-unit-topic-num, .pharm1-unit-topic-num, .cp-unit-topic-num, .ptx-unit-topic-num {
+                    width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                    font-weight: 800; font-size: 0.82rem; flex-shrink: 0;
+                }
+                .pmic-unit-topic-num { background: #E3F6F7; color: #159EAD; }
+                .pcog-unit-topic-num { background: rgba(74,222,128,0.18); color: #15803d; }
+                .pharm1-unit-topic-num { background: #ECEAF9; color: #6757B8; }
+                .cp-unit-topic-num { background: #E5F0F8; color: #397FB8; }
+                .ptx-unit-topic-num { background: #FBF1DC; color: #C58A2B; }
+
+                .pmic-unit-topic-title, .pcog-unit-topic-title, .pharm1-unit-topic-title, .cp-unit-topic-title, .ptx-unit-topic-title {
+                    font-weight: 700; font-size: 0.88rem; color: var(--text-primary); line-height: 1.25;
+                }
+                .pmic-unit-topic-sub, .pcog-unit-topic-sub, .pharm1-unit-topic-sub, .cp-unit-topic-sub, .ptx-unit-topic-sub {
+                    font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.25rem; line-height: 1.45;
+                }
+                .pmic-unit-topic-arrow, .pcog-unit-topic-arrow, .pharm1-unit-topic-arrow, .cp-unit-topic-arrow, .ptx-unit-topic-arrow {
+                    margin-left: auto; color: var(--text-secondary); font-size: 1.1rem; flex-shrink: 0;
+                }
+            

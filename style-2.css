@@ -1,0 +1,140 @@
+                #lecturerNotes {
+                    --sy-bg-a: #eef4fd;
+                    --sy-bg-b: #f3f0fc;
+                    --sy-ink: #1c2333;
+                    --sy-ink-soft: #6b7280;
+                    background: linear-gradient(160deg, var(--sy-bg-a) 0%, var(--sy-bg-b) 55%, #f7f8fc 100%);
+                }
+                [data-theme="dark"] #lecturerNotes {
+                    --sy-ink: #eef1f7;
+                    --sy-ink-soft: #a3aab8;
+                    background: linear-gradient(160deg, #171b26 0%, #1b1a29 55%, #15161e 100%);
+                }
+                #lecturerNotes.page { overflow-y: auto; -webkit-overflow-scrolling: touch; padding-left: 1rem !important; padding-right: 1rem !important; }
+                #lecturerNotes .sy-wrap { max-width: 680px; margin: 0 auto; }
+                #lecturerNotes .sy-back {
+                    display: inline-flex; align-items: center; gap: 0.4rem;
+                    background: none; border: none; font-family: inherit;
+                    color: var(--sy-ink-soft); font-size: 0.8rem; font-weight: 600;
+                    cursor: pointer; padding: 0.3rem 0.15rem; margin-bottom: 0.2rem;
+                    transition: color 0.15s ease;
+                }
+                #lecturerNotes .sy-back svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; }
+                #lecturerNotes .sy-back:hover { color: #4f46e5; }
+                #lecturerNotes .sy-back:focus-visible { outline: 2px solid #4f46e5; outline-offset: 3px; border-radius: 4px; }
+
+                #lecturerNotes .sy-hero { position: relative; display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.2rem 0.15rem 0.5rem; flex-wrap: nowrap; }
+                #lecturerNotes .sy-hero-text { flex: 1 1 auto; width: 100%; min-width: 0; }
+                #lecturerNotes .sy-eyebrow { font-size: 0.85rem; color: var(--sy-ink-soft); font-weight: 500; }
+                #lecturerNotes .sy-h1 { font-size: 1.65rem; font-weight: 800; color: var(--sy-ink); line-height: 1.15; margin-top: 0.15rem; letter-spacing: -0.01em; }
+                #lecturerNotes .sy-h1 span { background: linear-gradient(90deg, #4f46e5, #6366f1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+                #lecturerNotes .sy-hero-sub { margin-top: 0.5rem; font-size: 0.8rem; color: var(--sy-ink-soft); line-height: 1.5; max-width: 30ch; }
+                #lecturerNotes .sy-progress { margin-top: 0.9rem; height: 4px; width: 130px; border-radius: 3px; background: rgba(99,102,241,0.15); overflow: hidden; }
+                #lecturerNotes .sy-progress span { display: block; height: 100%; width: 42%; border-radius: 3px; background: linear-gradient(90deg, #4f46e5, #6366f1); }
+                #lecturerNotes .sy-illus { position: absolute; top: 0; right: 0.15rem; width: clamp(140px, 34vw, 240px); pointer-events: none; }
+                #lecturerNotes .sy-illus img { width: 100%; height: auto; display: block; }
+                @media (min-width: 420px) {
+                    #lecturerNotes .sy-illus { width: clamp(190px, 30vw, 260px); }
+                }
+                @media (min-width: 640px) {
+                    #lecturerNotes .sy-illus { width: clamp(230px, 26vw, 300px); }
+                }
+                @media (min-width: 1025px) {
+                    #lecturerNotes .sy-illus { width: 320px; }
+                }
+                /* Mobile/tablet landscape (not the desktop site): the
+                   illustration lands near its largest size here, so
+                   pull it back down a bit. */
+                @media (orientation: landscape) and (max-width: 1024px) {
+                    #lecturerNotes .sy-illus { width: clamp(190px, 22vw, 250px); }
+                }
+                /* Desktop site: keep the illustration floating in the
+                   corner like before (so the year cards stay in their
+                   original position), but shrink it and pull it up a
+                   little so it no longer reaches down far enough to
+                   cover any of the card text underneath it. */
+                @media (min-width: 1025px) {
+                    #lecturerNotes .sy-illus { width: 150px; top: -0.6rem; }
+                }
+                /* Portrait phones only: the hero text block is shorter
+                   here than the illustration at its normal size, so
+                   shrink just the illustration (rather than pushing the
+                   year cards down) to keep it clear of the cards below. */
+                @media (orientation: portrait) {
+                    #lecturerNotes .sy-illus { width: 128px; }
+                }
+                @media (orientation: portrait) and (min-width: 420px) {
+                    #lecturerNotes .sy-illus { width: 164px; }
+                }
+                @media (orientation: portrait) and (min-width: 640px) {
+                    #lecturerNotes .sy-illus { width: 200px; }
+                }
+
+                #lecturerNotes .sy-quote {
+                    display: flex; align-items: center; gap: 0.7rem;
+                    background: rgba(255,255,255,0.6); border: 1px solid rgba(99,102,241,0.14);
+                    border-radius: 16px; padding: 0.8rem 1rem; margin-bottom: 1.4rem;
+                }
+                [data-theme="dark"] #lecturerNotes .sy-quote { background: rgba(255,255,255,0.05); }
+                #lecturerNotes .sy-quote-icon {
+                    flex-shrink: 0; width: 34px; height: 34px; border-radius: 10px;
+                    background: rgba(99,102,241,0.14); color: #4f46e5;
+                    display: flex; align-items: center; justify-content: center;
+                }
+                #lecturerNotes .sy-quote-icon svg { width: 17px; height: 17px; }
+                #lecturerNotes .sy-quote-text { font-size: 0.82rem; font-style: italic; color: var(--sy-ink); line-height: 1.4; }
+
+                #lecturerNotes .sy-section-title { font-size: 1.05rem; font-weight: 800; color: var(--sy-ink); }
+                #lecturerNotes .sy-section-sub { font-size: 0.72rem; color: var(--sy-ink-soft); margin-top: 0.15rem; margin-bottom: 0.6rem; }
+
+                #lecturerNotes .sy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; padding-bottom: 0.5rem; }
+                /* Desktop site: show the 6 year tabs as 3 across, 2 down,
+                   instead of the mobile 2 across, 3 down layout above. */
+                @media (min-width: 1025px) {
+                    #lecturerNotes .sy-grid { grid-template-columns: 1fr 1fr 1fr; }
+                }
+                /* Mobile/tablet landscape (not the desktop site): there's
+                   plenty of horizontal room here too, so use the same
+                   3 across, 2 down layout as desktop. */
+                @media (orientation: landscape) and (max-width: 1024px) {
+                    #lecturerNotes .sy-grid { grid-template-columns: 1fr 1fr 1fr; }
+                }
+                #lecturerNotes .sy-card {
+                    position: relative; text-align: left; width: 100%;
+                    aspect-ratio: 9 / 6.5;
+                    display: flex; flex-direction: column; justify-content: flex-start;
+                    border: 1px solid transparent; border-radius: 14px;
+                    padding: 0.5rem 0.6rem 0.55rem; cursor: pointer; font-family: inherit;
+                    background: var(--card-tint);
+                    transition: transform 0.18s ease, box-shadow 0.18s ease;
+                }
+                #lecturerNotes .sy-card-body { display: flex; flex-direction: column; margin-top: 0.4rem; }
+                #lecturerNotes .sy-card:hover { transform: translateY(-2px); box-shadow: 0 10px 22px -8px var(--card-shadow); }
+                #lecturerNotes .sy-card:active { transform: translateY(0); }
+                #lecturerNotes .sy-card:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 2px; }
+                #lecturerNotes .sy-card-row { display: flex; align-items: center; gap: 0.45rem; }
+                #lecturerNotes .sy-icon-tile {
+                    flex-shrink: 0; width: 29px; height: 29px; border-radius: 9px;
+                    background: var(--card-icon-bg); color: var(--card-accent);
+                    display: flex; align-items: center; justify-content: center;
+                }
+                #lecturerNotes .sy-icon-tile svg { width: 15px; height: 15px; }
+                #lecturerNotes .sy-num { font-size: 0.78rem; font-weight: 700; color: var(--card-accent); }
+                #lecturerNotes .sy-chevron-circle {
+                    margin-left: auto; flex-shrink: 0; width: 23px; height: 23px; border-radius: 50%;
+                    background: var(--card-icon-bg); color: var(--card-accent);
+                    display: flex; align-items: center; justify-content: center;
+                    transition: transform 0.18s ease;
+                }
+                #lecturerNotes .sy-card:hover .sy-chevron-circle { transform: translateX(2px); }
+                #lecturerNotes .sy-chevron-circle svg { width: 12px; height: 12px; }
+                #lecturerNotes .sy-card-title { font-size: 0.87rem; font-weight: 800; color: var(--sy-ink); }
+                #lecturerNotes .sy-card-desc { font-size: 0.67rem; color: var(--sy-ink-soft); margin-top: 0.12rem; line-height: 1.28; }
+
+                #lecturerNotes .sy-c-green  { --card-tint: rgba(34,197,94,0.09);  --card-icon-bg: rgba(34,197,94,0.16);  --card-accent: #16a34a; --card-shadow: rgba(34,197,94,0.22); }
+                #lecturerNotes .sy-c-purple { --card-tint: rgba(124,92,252,0.09); --card-icon-bg: rgba(124,92,252,0.16); --card-accent: #6d4fee; --card-shadow: rgba(124,92,252,0.22); }
+                #lecturerNotes .sy-c-orange { --card-tint: rgba(249,115,22,0.09); --card-icon-bg: rgba(249,115,22,0.16); --card-accent: #ea7a17; --card-shadow: rgba(249,115,22,0.22); }
+                #lecturerNotes .sy-c-pink   { --card-tint: rgba(236,72,120,0.09); --card-icon-bg: rgba(236,72,120,0.16); --card-accent: #e5316d; --card-shadow: rgba(236,72,120,0.22); }
+                #lecturerNotes .sy-c-blue   { --card-tint: rgba(59,130,246,0.09); --card-icon-bg: rgba(59,130,246,0.16); --card-accent: #2563eb; --card-shadow: rgba(59,130,246,0.22); }
+                #lecturerNotes .sy-c-gold   { --card-tint: rgba(234,179,8,0.10);  --card-icon-bg: rgba(234,179,8,0.18);  --card-accent: #b8860b; --card-shadow: rgba(234,179,8,0.22); }
+            

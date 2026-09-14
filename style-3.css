@@ -1,0 +1,31 @@
+                #lnYear2.page { display: flex; flex-direction: column; overflow: hidden; }
+                #lnYear2 .yr2-hero { position: relative; flex: 0 0 auto; height: 230px; background: linear-gradient(160deg, #1D1E48 0%, #272860 45%, #1D1E48 100%); overflow: visible; color: #fff; }
+                #lnYear2 .yr2-hero-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; border-radius: inherit; }
+                #lnYear2 .yr2-hero-clip { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; }
+                #lnYear2 .yr2-back { position: absolute; top: 1rem; left: 1rem; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px) saturate(180%); box-shadow: 0 2px 10px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.28); z-index: 999; }
+                #lnYear2 .yr2-body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; background: var(--background); border-radius: 20px 20px 0 0; position: relative; z-index: 1; padding-top: 14px; overflow: hidden; }
+                #lnYear2 .yr2-tabbar { position: absolute; left: 1rem; right: 1rem; bottom: 14px; z-index: 20; height: 38px; box-sizing: border-box; display: flex; align-items: center; gap: 0.35rem; padding: 0.3rem; background: rgba(255,255,255,0.16); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); border: 1px solid rgba(255,255,255,0.3); border-radius: 15px; box-shadow: 0 4px 16px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.22); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+                #lnYear2 .yr2-tab { flex: 1 1 auto; min-width: max-content; white-space: nowrap; border: none; background: transparent; cursor: pointer; padding: 0.5rem 0.5rem; border-radius: 11px; font-family: inherit; font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center; gap: 0.32rem; transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease; outline: none; -webkit-tap-highlight-color: transparent; }
+                #lnYear2 .yr2-tab:focus, #lnYear2 .yr2-tab:focus-visible { outline: none; }
+                #lnYear2 .yr2-tab.active { background: #fff; color: #1D1E48; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+                #lnYear2 .yr2-viewport { flex: 1 1 auto; min-height: 0; overflow: hidden; position: relative; }
+                #lnYear2 .yr2-track { position: relative; width: 100%; height: 100%; }
+                #lnYear2 .yr2-panel { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; box-sizing: border-box; padding: 0 1rem 0.75rem; display: none; flex-direction: column; }
+                #lnYear2 .yr2-panel.active { display: flex; }
+                #lnYear2 .yr2-card { background: var(--surface); border-radius: 14px; padding: 0.75rem; display: flex; gap: 0.6rem; align-items: flex-start; box-shadow: var(--shadow); margin-bottom: 0.6rem; flex: 0 0 auto; }
+                #lnYear2 .yr2-card-icon { width: 32px; height: 32px; border-radius: 9px; background: #E4E4FB; color: #4F46E5; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+                #lnYear2 .yr2-card-title { font-weight: 800; font-size: 0.92rem; color: var(--text-primary); }
+                #lnYear2 .yr2-card-desc { font-size: 0.74rem; color: var(--text-secondary); margin-top: 0.25rem; line-height: 1.45; }
+                #lnYear2 .yr2-stats-row { display: flex; gap: 0.5rem; margin-bottom: 0.6rem; flex: 0 0 auto; }
+                #lnYear2 .yr2-stat { flex: 1; background: var(--surface); border-radius: 12px; padding: 0.6rem; text-align: center; box-shadow: var(--shadow); }
+                #lnYear2 .yr2-stat-num { font-size: 1.2rem; font-weight: 800; color: #4F46E5; }
+                #lnYear2 .yr2-stat-label { font-size: 0.66rem; color: var(--text-secondary); margin-top: 0.1rem; }
+                #lnYear2 .yr2-chapters-title { font-size: 1rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.4rem; padding-top: 0.6rem; flex: 0 0 auto; }
+                #lnYear2 .yr2-chapters-list { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 0.32rem; }
+                #lnYear2 .yr2-chapter-row { flex: 0 0 auto; display: flex; align-items: center; gap: 0.6rem; background: var(--surface); border-radius: 12px; padding: 0.65rem 0.75rem; cursor: pointer; box-shadow: var(--shadow); transition: var(--transition); }
+                #lnYear2 .yr2-chapter-row:hover { box-shadow: 0 6px 18px rgba(99,102,241,0.18); }
+                #lnYear2 .yr2-chapter-num { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.76rem; flex-shrink: 0; }
+                #lnYear2 .yr2-chapter-title { font-weight: 700; font-size: 0.86rem; color: var(--text-primary); line-height: 1.25; }
+                #lnYear2 .yr2-chapter-sub { font-size: 0.66rem; color: var(--text-secondary); margin-top: 0.1rem; }
+                #lnYear2 .yr2-chapter-arrow { margin-left: auto; color: var(--text-secondary); font-size: 1.1rem; }
+            
